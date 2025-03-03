@@ -48,6 +48,7 @@ def main():
     conn = sqlite3.connect(FULL_PATH)
     cursor = conn.cursor()
     select_query = cursor.execute(f"SELECT * from {DB_NAME}")
+    dic_of_cache = select_query.fetchall()
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     server_socket.bind(ADDRESS)
