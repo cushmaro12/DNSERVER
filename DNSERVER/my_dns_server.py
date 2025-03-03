@@ -46,6 +46,7 @@ def main():
         os.makedirs(PATH_OF_DB)
 
     conn = sqlite3.connect(FULL_PATH)
+    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     select_query = cursor.execute(f"SELECT * from {DB_NAME}")
     dic_of_cache = select_query.fetchall()
